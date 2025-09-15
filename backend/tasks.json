@@ -3,10 +3,5 @@
         "id": 1,
         "description": "Zadatak 2",
         "status": "todo"
-    },
-    {
-        "id": 2,
-        "description": "otici do ordinacije u 12h",
-        "status": "todo"
     }
 ]
