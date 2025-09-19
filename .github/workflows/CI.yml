@@ -15,32 +15,34 @@ jobs:
         working-directory: backend
 
     steps:
-      # 1. Checkout koda
+      # 1️⃣ Checkout koda
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Set up Python 3.12
+      # 2️⃣ Set up Python 3.12
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.12"
 
-      # 3. Instaliraj zavisnosti
+      # 3️⃣ Instaliraj zavisnosti
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install pytest flake8 black
 
-      # 4. Lint korak (provera stila koda)
+      # 4️⃣ Autoformatiranje koda sa black
       - name: Format code with black
         run: black .
+
+      # 5️⃣ Lint korak (provera stila koda)
       - name: Run lint
         run: flake8 .
 
-      # 5. Test korak (pytest)
+      # 6️⃣ Testovi (pytest)
       - name: Run tests
         run: pytest
 
-      # 6. Build korak (provera Docker image-a)
+      # 7️⃣ Build Docker image
       - name: Build Docker image
         run: docker build -t backend-app .
