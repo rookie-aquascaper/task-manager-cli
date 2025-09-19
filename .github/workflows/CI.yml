@@ -32,6 +32,8 @@ jobs:
           pip install pytest flake8 black
 
       # 4. Lint korak (provera stila koda)
+      - name: Format code with black
+        run: black .
       - name: Run lint
         run: flake8 .
 
